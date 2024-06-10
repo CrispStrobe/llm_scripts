@@ -32,7 +32,7 @@ def run_whisper_and_capture_output(command, output_file, cleaned_file):
             match = re.match(r'\[\d{2}:\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}:\d{2}\.\d{3}\]', line)
             if match:
                 # Remove the timecodes but preserve the rest of the line
-                cleaned_line = re.sub(r'\[\d{2}:\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}:\d{2}\.\d{3}\]\s+', '', line)
+                cleaned_line = re.sub(r'\[\d{2}:\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}:\d{2}\.\d{3}\]\s+', '', line).lstrip()
                 file.write(cleaned_line)
 
 def main():
